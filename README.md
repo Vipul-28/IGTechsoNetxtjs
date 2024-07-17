@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Name
 
-## Getting Started
+This project is a web application built with Next.js, MongoDB, and Node.js. It provides user authentication functionalities (login and register) and a dashboard feature.
 
-First, run the development server:
+## Project Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The project structure is organized as follows:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **/app**
+  - **/api**: Backend API functions.
+  - **/login**: Login page.
+  - **/register**: Registration page.
+  - **/root**: Dashboard and home page.
+- **/component**: Reusable UI components.
+  - **userCard**: Component to display user information.
+  - **sidenav**: Side navigation component.
+  - **login**: Login component.
+  - **register**: Register component.
+- **/model**: Defines the user schema.
+- **/utils**: Utility functions.
+  - **db.js**: Database connectivity functions.
+  - **data.js**: Dummy data for dashboard.
+  - **sessionProvider.js**: Manages user login/logout sessions.
+- **/__test__**: Contains tests.
+  - Testing with Jest.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Functionality
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The application provides the following functionalities:
 
-## Learn More
+- **/login**: Endpoint to login users.
+  - Accessible via `/login`.
+- **/register**: Endpoint to register users.
+  - Accessible via `/register`.
+- **/dashboard**: Endpoint for the dashboard.
+  - Accessible only after successful login.
+  - Logout required to access `/login` again.
 
-To learn more about Next.js, take a look at the following resources:
+## Setup Instructions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Database Setup**:
+   - Create a MongoDB database named `nextjs14` using MongoDB Compass or the MongoDB shell.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Project Setup**:
+   - Clone the repository.
+   - Install dependencies:
+     ```bash
+     npm install
+     ```
+   - Start the development server:
+     ```bash
+     npm run dev
+     ```
 
-## Deploy on Vercel
+3. **Testing**:
+   - Run tests using Jest:
+     ```bash
+     npm test
+     ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Usage**:
+   - Navigate to `/login` to log in.
+   - Navigate to `/register` to register.
+   - Once logged in, access `/dashboard` for the dashboard feature.
+   - Logout to return to `/login`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Notes
+
+- Make sure MongoDB is running and accessible before starting the application.
+- Ensure proper environment variables are set for database connectivity (`MONGODB_URI`, etc.).
+
+## Contributors
+
+- List contributors here if applicable.
+
+## License
+
+- Specify the project's license if applicable.

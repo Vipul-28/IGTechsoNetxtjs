@@ -32,6 +32,7 @@ const Login = () => {
         console.log("GGG",res);
         if (res?.error) {
             if (res?.url) router.replace("/dashboard");
+            else alert("wrong credential! ")
         } else {
         }
  

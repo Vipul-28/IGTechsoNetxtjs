@@ -1,29 +1,35 @@
 'use client'
 import SideNav from '@/components/SideNav'
 import UserCard from '@/components/UserCard'
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 import {  useSession } from "next-auth/react";
 
-const PersonalRoom = async() => {
+const Dashboard = () => {
    const router = useRouter();
+   
   const { data: session, status: sessionStatus } = useSession();
   useEffect(() => {
-      if (sessionStatus !== "authenticated") {
-          router.replace("/login");
+      if (sessionStatus != "authenticated") {
+          redirect("/login");
       }
   }, [sessionStatus, router]);
+
+  useEffect(() => {
+    if (sessionStatus != "authenticated") {
+        router.replace("/login");
+    }
+}, []);
 
 
   return (
 <section className="flex" > 
-    <SideNav  />
-    <div className="ml-[300px] mt-10 grid grid-cols-3 gap-5">
-     <UserCard />
-    
+    <SideNav />
+    <div className="ml-[300px] mt-10">
+     <UserCard /> 
     </div>
    </section>
   )
 }
 
-export default PersonalRoom
+export default Dashboard

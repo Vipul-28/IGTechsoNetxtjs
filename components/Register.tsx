@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 // import { useRouter } from "next/router";
 
@@ -32,15 +32,16 @@ const Register = () => {
                       password:data.password
                     }),
                 });
-                alert(res.status)
+                // alert(res.status)
                 if (res.status === 400) {
-                    console.log("This email is already registered");
+                    alert("This email is already registered");
                 }
                 if (res.status === 200) {
-                    router.push("/login");
+                    alert("login successfully! Please go for login")
+                    redirect("/login");
                 }
             } catch (error) {
-                console.log("Error, try again");
+            //    alert("Error, try again");
                 console.log(error);
             }
         }
