@@ -5,8 +5,8 @@ import bcrypt from "bcryptjs"
 export const POST = async (request: any) => {
     const { name, email, password } = await request.json();
     await connect();
- 
-    const existingUser = await User.findOne({ email });
+   console.log("hhjhsjdhshfdkshdk");
+   const existingUser = await User.findOne({ email });
  
     if (existingUser) {
         return new NextResponse("Email is already in use", { status: 400 });

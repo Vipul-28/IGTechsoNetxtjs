@@ -25,7 +25,7 @@ const Dashboard = () => {
   return (
 <section className="flex" > 
     <SideNav />
-    <div className="ml-[300px] mt-10">
+    <div className=" w-full">
      <UserCard /> 
     </div>
    </section>
