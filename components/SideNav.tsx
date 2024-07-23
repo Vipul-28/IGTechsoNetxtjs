@@ -1,4 +1,5 @@
 "use client"
+import { signOut } from 'next-auth/react';
 // import {signOut} from "next-auth/react"
 import { useEffect, useRef, useState } from 'react';
 const SideNav = () => {
@@ -14,23 +15,8 @@ const SideNav = () => {
 
   return (
     <>
-     {/* <div
-      className="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900"
-    >
-      
-      <div
-        className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-blue-600 text-white">
-        <i className="bi bi-house-door-fill"></i>
-        <span className="text-[15px] ml-4 text-gray-200 font-bold">Home</span>
-      </div> 
-      <div
-        className="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer text-white"
-      >
-        <i className="bi bi-box-arrow-in-right"></i>
-        <button className="text-[15px] ml-4 text-gray-200 font-bold" onClick={signOut}>Logout</button>
-      </div>
-    </div> */}
-    <div className="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
+     
+     <div className="flex h-screen " style={{backgroundColor:"gray"}}>
       {/* Loading screen */}
       <div
         ref={loadingRef}
@@ -41,13 +27,13 @@ const SideNav = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 z-10 flex w-80 ${
+        className={`fixed inset-y-0 z-10 flex w-[400px] ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300`}
       >
         {/* Curvy shape */}
         <svg
-          className="absolute inset-0 w-full h-full text-white"
+          className="absolute inset-0 w-full h-full text-[#111827]"
           style={{ filter: 'drop-shadow(10px 0 10px #00000030)' }}
           preserveAspectRatio="none"
           viewBox="0 0 309 800"
@@ -60,15 +46,11 @@ const SideNav = () => {
         {/* Sidebar content */}
         <div className="z-10 flex flex-col flex-1">
           <div className="flex items-center justify-between flex-shrink-0 w-64 p-4">
-            {/* Logo */}
             <a href="#">
-              {/* <span className="sr-only">K-UI</span> */}
               <svg
                 aria-hidden="true"
-                // className="w-16 h-auto text-blue-600"
                 viewBox="0 0 96 53"
                 fill="currentColor"
-                // xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   fillRule="evenodd"
@@ -77,7 +59,6 @@ const SideNav = () => {
                 />
               </svg>
             </a>
-            {/* Close btn */}
             <button
               onClick={() => setIsSidebarOpen(false)}
               className="p-1 rounded-lg focus:outline-none focus:ring"
@@ -95,10 +76,10 @@ const SideNav = () => {
               <span className="sr-only">Close sidebar</span>
             </button>
           </div>
-          <nav className="flex flex-col flex-1 w-64 p-4 mt-4">
-            <a href="#" className="flex items-center space-x-2">
+          <nav className="flex flex-col flex-1 w-64 p-4 mt-4 ">
+            <a href="#" className="flex items-center space-x-2 w-[250px] h-[40px] rounded-xl bg-blue-600 ">
               <svg
-                className="w-6 h-6"
+                className="w-6 h-6 "
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -132,13 +113,12 @@ const SideNav = () => {
                   d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                 />
               </svg>
-              <span>Logout</span>
+              <span onClick={signOut}>Logout</span>
             </button>
           </div>
         </div>
       </div>
       <main className="flex flex-col items-center justify-center flex-1">
-        {/* Page content */}
         <button
           onClick={() => setIsSidebarOpen(true)}
           className="fixed p-2 text-white bg-black rounded-lg top-5 left-5"
@@ -172,6 +152,7 @@ const SideNav = () => {
           </a>
         </main>
       </div>
+
     </>
   )
 }
